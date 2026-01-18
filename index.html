@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohel Web Architect - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --gradient: linear-gradient(135deg, #3498db, #2c3e50);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin-right: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Container */
+        .page-container {
+            min-height: calc(100vh - 200px);
+            padding: 3rem 0;
+        }
+
+        /* Hero Section - Home Page */
+        .hero {
+            padding: 5rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Services Page */
+        .services {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .service-tag {
+            background-color: #eef5ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects Page */
+        .demo-projects {
+            padding: 5rem 0;
+            background-color: #f5f7fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: #666;
+        }
+
+        /* Contact Page */
+        .contact {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        /* About Page */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--secondary);
+                padding: 2rem;
+                transition: all 0.5s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .services, .demo-projects, .contact {
+                padding: 3rem 0;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Hidden Page */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" data-page="home">
+                <!-- আপনার প্রোফাইল ছবি এখানে যোগ করুন -->
+                <img src="https://imgur.com/31UaAIs.jpg" alt="Sohel Web Architect" class="logo-img">
+                <h1>Sohel Web Architect</h1>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <div class="container hero-content">
+                    <img src="https://imgur.com/fCMYwWQ.jpg" alt="Sohel Web Architect" class="profile-img">
+                    <div class="hero-text">
+                        <h2>Hi, I'm Sohel</h2>
+                        <p>I'm a full-stack web architect specializing in creating beautiful, functional websites and applications. With expertise in web design, development, IT solutions, and more, I help businesses establish a strong online presence.</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="cta-button" data-page="services">View Services</a>
+                            <a href="#" class="cta-button" data-page="contact" style="background-color: var(--secondary); margin-left: 10px;">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container page-container">
+                <div class="section-title">
+                    <h2>Why Choose Me?</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <i class="fas fa-bolt" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>I deliver projects on time without compromising on quality. Your satisfaction is my priority.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <i class="fas fa-headset" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                            <h3>24/7 Support</h3>
+                            <p>I provide ongoing support even after project completion to ensure everything runs smoothly.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <i class="fas fa-medal" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                            <h3>Quality Work</h3>
+                            <p>I follow best practices and use modern technologies to deliver high-quality solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page -->
+        <section id="services-page" class="page">
+            <div class="services">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>My IT Services</h2>
+                        <p style="max-width: 800px; margin: 1rem auto 0; color: #666;">Comprehensive IT solutions tailored to your business needs. From web development to digital marketing, I provide end-to-end services.</p>
+                    </div>
+                    <div class="services-grid">
+                        <!-- Service 1 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web Design & Development" class="service-img">
+                            <div class="service-content">
+                                <h3>Web Design & Development</h3>
+                                <p>Custom website design and development tailored to your business needs. Responsive, modern, and SEO-friendly websites that work on all devices.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">UI/UX Design</span>
+                                    <span class="service-tag">Frontend</span>
+                                    <span class="service-tag">Backend</span>
+                                    <span class="service-tag">E-commerce</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="App Development" class="service-img">
+                            <div class="service-content">
+                                <h3>Mobile & Desktop Apps</h3>
+                                <p>Custom application development for iOS, Android, and desktop platforms. From concept to deployment, I create apps that solve real problems.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">iOS Apps</span>
+                                    <span class="service-tag">Android Apps</span>
+                                    <span class="service-tag">Desktop Software</span>
+                                    <span class="service-tag">Cross-platform</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Solutions" class="service-img">
+                            <div class="service-content">
+                                <h3>IT Solutions & Consulting</h3>
+                                <p>Comprehensive IT solutions including network setup, security, cloud migration, and tech consulting to optimize your business operations.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">Networking</span>
+                                    <span class="service-tag">Security</span>
+                                    <span class="service-tag">Cloud</span>
+                                    <span class="service-tag">Consulting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Engineering" class="service-img">
+                            <div class="service-content">
+                                <h3>Social Media Engineering</h3>
+                                <p>Strategic social media management, content creation, and campaign optimization to boost your brand's online presence and engagement.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">Content Strategy</span>
+                                    <span class="service-tag">Campaign Management</span>
+                                    <span class="service-tag">Analytics</span>
+                                    <span class="service-tag">Branding</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Data Entry & Design" class="service-img">
+                            <div class="service-content">
+                                <h3>Data Entry & Design</h3>
+                                <p>Accurate and efficient data entry services along with graphic design solutions for brochures, banners, logos, and other marketing materials.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">Data Processing</span>
+                                    <span class="service-tag">Graphic Design</span>
+                                    <span class="service-tag">Logo Design</span>
+                                    <span class="service-tag">Marketing Materials</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="service-card">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital Marketing" class="service-img">
+                            <div class="service-content">
+                                <h3>Digital Marketing</h3>
+                                <p>Comprehensive digital marketing strategies including SEO, PPC, email marketing, and content marketing to grow your business online.</p>
+                                <div class="service-tags">
+                                    <span class="service-tag">SEO</span>
+                                    <span class="service-tag">PPC</span>
+                                    <span class="service-tag">Email Marketing</span>
+                                    <span class="service-tag">Content Marketing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Page -->
+        <section id="projects-page" class="page">
+            <div class="demo-projects">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Demo Projects</h2>
+                        <p style="max-width: 800px; margin: 1rem auto 0; color: #666;">Here are some of my recent projects showcasing my skills and expertise in various domains.</p>
+                    </div>
+                    <div class="projects-grid">
+                        <!-- Project 1 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website" class="project-img">
+                            <div class="project-content">
+                                <h3>E-commerce Platform</h3>
+                                <p>Full-featured online store with product catalog, shopping cart, payment integration, and admin dashboard.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">React</span>
+                                    <span class="service-tag">Node.js</span>
+                                    <span class="service-tag">MongoDB</span>
+                                    <span class="service-tag">Payment Gateway</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Dashboard" class="project-img">
+                            <div class="project-content">
+                                <h3>Business Analytics Dashboard</h3>
+                                <p>Interactive dashboard for tracking business metrics, generating reports, and visualizing data insights.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">Vue.js</span>
+                                    <span class="service-tag">Express.js</span>
+                                    <span class="service-tag">Charts.js</span>
+                                    <span class="service-tag">Data Visualization</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mobile App" class="project-img">
+                            <div class="project-content">
+                                <h3>Task Management App</h3>
+                                <p>Cross-platform mobile application for personal and team task management with real-time synchronization.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">React Native</span>
+                                    <span class="service-tag">Firebase</span>
+                                    <span class="service-tag">Real-time Sync</span>
+                                    <span class="service-tag">Push Notifications</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Website" class="project-img">
+                            <div class="project-content">
+                                <h3>Corporate Website</h3>
+                                <p>Professional corporate website with CMS, blog, contact forms, and multilingual support.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">WordPress</span>
+                                    <span class="service-tag">PHP</span>
+                                    <span class="service-tag">MySQL</span>
+                                    <span class="service-tag">Multilingual</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portfolio Website" class="project-img">
+                            <div class="project-content">
+                                <h3>Portfolio Website</h3>
+                                <p>Creative portfolio website for a graphic designer with gallery, project showcase, and contact form.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">HTML/CSS</span>
+                                    <span class="service-tag">JavaScript</span>
+                                    <span class="service-tag">Responsive Design</span>
+                                    <span class="service-tag">Animation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media App" class="project-img">
+                            <div class="project-content">
+                                <h3>Social Media App</h3>
+                                <p>Social networking application with profiles, posts, comments, likes, and messaging features.</p>
+                                <div class="service-tags" style="margin-top: 1rem;">
+                                    <span class="service-tag">MERN Stack</span>
+                                    <span class="service-tag">Socket.io</span>
+                                    <span class="service-tag">Image Upload</span>
+                                    <span class="service-tag">Real-time Chat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about-page" class="page">
+            <div class="container page-container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div>
+                        <img src="https://imgur.com/39RzfRo.jpg" alt="Sohel Web Architect" class="profile-img" style="width: 100%; max-width: 400px; height: auto;">
+                    </div>
+                    <div class="about-text">
+                        <h3>Sohel Web Architect</h3>
+                        <p>Hello! I'm Sohel, a passionate web architect and IT solutions provider with over 5 years of experience in the industry. I specialize in creating modern, responsive websites and applications that help businesses thrive in the digital world.</p>
+                        <p>My expertise spans across web design, development, mobile apps, IT consulting, digital marketing, and social media engineering. I believe in delivering high-quality solutions that not only meet but exceed client expectations.</p>
+                        <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or helping startups build their digital presence.</p>
+                        
+                        <div class="skills">
+                            <h3 style="margin-top: 2rem;">My Skills</h3>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Web Development</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Mobile App Development</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>UI/UX Design</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Digital Marketing</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact-page" class="page">
+            <div class="contact">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Contact Me</h2>
+                        <p style="max-width: 800px; margin: 1rem auto 0; color: #666;">Get in touch for project inquiries, collaboration, or any questions about my services. I typically respond within 24 hours.</p>
+                    </div>
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Get In Touch</h3>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>01604703820</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>sohel901190@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Dhaka, Bangladesh</span>
+                                </div>
+                            </div>
+                            <p>Feel free to reach out for project inquiries, collaboration, or any questions about my services. I typically respond within 24 hours.</p>
+                            <div class="social-links">
+                                <a href="https://wa.me/01604703820" target="_blank" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="mailto:sohel901190@gmail.com" title="Email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="#" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Mobile Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">Service Required</label>
+                                    <select id="service" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="web-design">Web Design & Development</option>
+                                        <option value="app-development">Mobile & Desktop Apps</option>
+                                        <option value="it-solutions">IT Solutions & Consulting</option>
+                                        <option value="social-media">Social Media Engineering</option>
+                                        <option value="data-entry">Data Entry & Design</option>
+                                        <option value="digital-marketing">Digital Marketing</option>
+                                        <option value="other">Other Services</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="details">Project Details</label>
+                                    <textarea id="details" name="details" rows="5" required placeholder="Please describe your project requirements in detail..."></textarea>
+                                </div>
+                                <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <!-- ফুটারেও আপনার ছবি যোগ করা হয়েছে -->
+            <img src="https://imgur.com/31UaAIs.jpg" alt="Sohel Web Architect" class="footer-logo">
+            <h2 style="color: white; margin-bottom: 0.5rem;">Sohel Web Architect</h2>
+            <p>Comprehensive IT Services & Solutions</p>
+            <div class="copyright">
+                <p>&copy; 2023 Sohel Web Architect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Page Navigation System
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const logo = document.querySelector('.logo');
+            const pages = document.querySelectorAll('.page');
+            
+            // Function to switch pages
+            function switchPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the selected page
+                const activePage = document.getElementById(`${pageId}-page`);
+                if (activePage) {
+                    activePage.classList.add('active');
+                    
+                    // Update active nav link
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('data-page') === pageId) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                    // Update browser history
+                    history.pushState({page: pageId}, '', `#${pageId}`);
+                }
+            }
+            
+            // Handle nav link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+            
+            // Handle logo click
+            logo.addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('home');
+            });
+            
+            // Handle CTA button clicks
+            document.querySelectorAll('.cta-button[data-page]').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    switchPage(pageId);
+                });
+            });
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function(e) {
+                if (e.state && e.state.page) {
+                    switchPage(e.state.page);
+                } else {
+                    switchPage('home');
+                }
+            });
+            
+            // Check for hash in URL on page load
+            const hash = window.location.hash.substring(1);
+            if (hash && ['home', 'services', 'projects', 'about', 'contact'].includes(hash)) {
+                switchPage(hash);
+            } else {
+                switchPage('home');
+            }
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                const details = document.getElementById('details').value;
+                
+                // Here you would typically send this data to a server
+                // For now, we'll just show an alert
+                alert(`Thank you ${name}! Your message has been sent. I will contact you at ${phone} or ${email} soon regarding your ${service} project.`);
+                
+                // Reset the form
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
